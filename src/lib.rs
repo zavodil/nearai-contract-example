@@ -69,7 +69,7 @@ impl Contract {
             log!("Message to sign: {:?}", to_sign);
         }
 
-        // 3. Decode the public key from Base58 and remove the "ed25519:" prefix
+        // 3. Decode the public key from Base58
         let pk_bytes = bs58::decode(&self.public_key.as_str()).into_vec().unwrap();
         if pk_bytes.len() != 32 {
             panic!("Invalid public key length");
